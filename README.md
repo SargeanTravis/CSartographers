@@ -1,7 +1,7 @@
 # CSartographers
 A Console Based emulation of the board game Cartographers. WIP
 
-#What the game is
+# What the game is
 Cartographers is a 1-4 player tile placement game (like tetris, but on a piece of paper) where users place various sets of tiles on the board and score points based on how they are arranged as well as randomly selected scoring conditions, played over 4 rounds, called seasons. After the final season, the winner is the player with the most points.
 
 This is my attempt at creating a Console Application emulator for this pencil-and-paper board game. A lot of the components are ready as-is, but there's still a lot to work on it to be considered functional. 
