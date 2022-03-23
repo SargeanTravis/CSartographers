@@ -1,0 +1,16 @@
+﻿-Implement children of iResources (See all children of Tile for example)
+-Implement  the FillTile() and isCoinTile() methods
+-Implement Monster Tiles
+TODO:
+-Tile Placement UI system
+-GameLoopHandler class?
+-Implement Tileset Deck and randomization
+-Implement SelectResource() for wTile
+-Tile Placement
+-Implement Graph DS for all iResources children (except where excludable) for the purpose of scorekeeping
+-Ensure dtTile functions as intended
+-Ensure FillTile() method works as intended
+-Add Monster deck functionality
+-Scoring
+-Game Cycle
+
