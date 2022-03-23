@@ -10,16 +10,25 @@ You can view the official ruleset here: https://www.thunderworksgames.com/upload
 
 # Things I have achieved:
 -Several hierarchies of objects that are used to create in-game tiles
+
 -A Map Object that creates the playing surface
+
 -The methods required in theory to place tiles on the board.
+
 -Some fo the in-game tiles that can be selected in-game.
+
 -Some test methods 
 
 # Things left to complete:
+
 -Tile Placement is hella buggy.
+
 -Cards  and score system need to be implemented.
+
 -A working executable that packages up all of these issues
+
 -Singleplayer mode (V2)
+
 -Maybe graphics instead of ASCII. But this probably wont happen
 
 # My Top Priority Right Now
