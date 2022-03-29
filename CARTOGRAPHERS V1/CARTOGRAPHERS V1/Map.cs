@@ -13,7 +13,7 @@ namespace CARTOGRAPHERS_V1
 
 
 
-        private pTerrain[,] mapArray;//Map is not a List as the game is fixed to a 11X11 grid
+        private String[,] mapArray;//Map is not a List as the game is fixed to a 11X11 grid
         private iResources[,] scoreArray;//Copy of map that is not visual but only holds iResource values that track scoring properties.
 
         private int xOffset;//Sets the X-axis offset of the tile to be placed from 0,0, the top left corner fo the board
@@ -28,7 +28,7 @@ namespace CARTOGRAPHERS_V1
 
         //Begin Constructors
 
-        public pTerrain[,] MapArray
+        public String[,] MapArray
         {
             get
             {
@@ -82,15 +82,15 @@ namespace CARTOGRAPHERS_V1
         //TODO: Move tile creation to this class and create global tile objects
         public Map(bool isWastelands = false)
         {
-            Mountain m1 = new Mountain();//I think creating 5 instances of mountain will be best here as using 5 copies fo the same mountain may be problematic in scoring.
+            
             rMountain rm1 = new rMountain();
-            Mountain m2 = new Mountain();
+            
             rMountain rm2 = new rMountain();
-            Mountain m3 = new Mountain();
+            
             rMountain rm3 = new rMountain();
-            Mountain m4 = new Mountain();
+            
             rMountain rm4 = new rMountain();
-            Mountain m5 = new Mountain();
+            
             rMountain rm5 = new rMountain();
             Ruins ntr = new Ruins();
             Empty e = new Empty();
@@ -99,19 +99,19 @@ namespace CARTOGRAPHERS_V1
 
             if (isWastelands == false)
             {
-                pTerrain[,] dma =
+                String[,] dma =
                 {
-                   {e, e, e, e, e, e, e, e, e, e, e },
-                   {e, e, e, m1, e, ntr, e, e, e, e, e },
-                   {e, ntr, e, e, e, e, e, e, m2, ntr, e },
-                   {e, e, e, e, e, e, e, e, e, e, e },
-                   {e, e, e, e, e, e, e, e, e, e, e },
-                   {e, e, e, e, e, m3, e, e, e, e, e },
-                   {e, e, e, e, e, e, e, e, e, e, e },
-                   {e, e, e, e, e, e, e, e, e, e, e },
-                   {e, ntr, m4, e, e, e, e, e, e, ntr, e },
-                   {e, e, e, e, e, ntr, e, m5, e, e, e },
-                   {e, e, e, e, e, e, e, e, e, e, e }
+                   {"--","--","--","--","--","--","--","--","--","--","--"},
+                   {"--","--","--",rm1.ToString(),"--","-R","--","--","--","--","--",},
+                   {"--","-R","--","--","--","--","--","--",rm2.ToString(),"-R","--"},
+                   {"--","--","--","--","--","--","--","--","--","--","--"},
+                   {"--","--","--","--","--","--","--","--","--","--","--",},
+                   {"--","--","--","--","--",rm3.ToString(),"--","--","--","--","--",},
+                   {"--","--","--","--","--","--","--","--","--","--","--",},
+                   {"--","--","--","--","--","--","--","--","--","--","--",},
+                   {"--","-R",rm4.ToString(),"--","--","--","--","--","--","-R","--"},
+                   {"--","--","--","--","--","-R","--",rm5.ToString(),"--","--","--"},
+                   {"--","--","--","--","--","--","--","--","--","--","--"}
                 };
 
                 rm1.setCoords(3, 1);
@@ -165,19 +165,19 @@ namespace CARTOGRAPHERS_V1
             }
             else
             {
-                pTerrain[,] dwma =
+                String[,] dwma =
                 {
-                    {e, e, e, e, e, e, e, e, e, e, e },
-                    {e, e, e, e, e, e, ntr, e, m1, e, e },
-                    {e, e, ntr, m2, e, e, e, e, e, e, e },
-                    {e, e, e, e, e, w, e, e, e, e, e },
-                    {e, e, e, e, w, w, ntr, e, e, e, e },
-                    {e, e, e, e, w, w, w, e, e, e, e },
-                    {e, ntr, e, e, e, w, e, e, e, e, e },
-                    {e, e, e, e, e, m3, e, e, ntr, e, e },
-                    {e, e, e, e, e, e, e, e, e, m4, e },
-                    {e, e, m5, ntr, e, e, e, e, e, e, e },
-                    {e, e, e, e, e, e, e, e, e, e, e }
+                    {"--","--","--","--","--","--","--","--","--","--","--"},
+                    {"--","--","--","--","--","--","-R","--",rm1.ToString(),"--","--"},
+                    {"--","--","-R",rm2.ToString(),"--","--","--","--","--","--","--"},
+                    {"--","--","--","--","--",w.ToString(),"--","--","--","--","--"},
+                    {"--","--","--","--",w.ToString(), w.ToString(),"-R","--","--","--","--"},
+                    {"--","--","--","--",w.ToString(), w.ToString(), w.ToString(),"--","--","--","--"},
+                    {"--","-R","--","--","--",w.ToString(),"--","--","--","--","--"},
+                    {"--","--","--","--","--",rm3.ToString(),"--","--","-R", "--","--"},
+                    {"--","--","--","--","--","--","--","--","--",rm4.ToString(),"--"},
+                    {"--","--",rm5.ToString(),"-R","--","--","--","--","--","--","--"},
+                    {"--","--","--","--","--","--","--","--","--","--","--"}
                 };
 
                 rm1.setCoords(8, 1);
