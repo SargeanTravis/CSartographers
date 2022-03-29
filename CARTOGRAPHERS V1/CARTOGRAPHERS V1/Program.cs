@@ -129,22 +129,32 @@ namespace CARTOGRAPHERS_V1
             #endregion
 
 
-            a.FillTile();
-
-            foreach (var sublist in a.FinalTile)
-            {
-                foreach(iResources resource in sublist)
-                {
-                    Console.WriteLine(resource.ToString());
-                }
-            }
+            
 
             Map test = new Map();
+
+
 
             test.displayMap();
 
             test.XOffset = 0;
             test.YOffset = 1;
+
+            List<List<List<iResources>>> testing = test.FillTile(a);
+
+            foreach(List<List<iResources>>tileRotation in testing)
+            {
+
+                foreach(List<iResources> tileRow in tileRotation)
+                {
+                    foreach(iResources resource in tileRow)
+                    {
+                        Console.Write(resource.ToString()+" ");
+                    }
+                    Console.WriteLine();
+                }
+                Console.WriteLine("\n");
+            }
 
            // bool check = test.simulatePlacement(b, 0, false);
 

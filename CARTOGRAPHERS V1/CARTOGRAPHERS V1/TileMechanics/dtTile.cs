@@ -141,58 +141,9 @@ namespace CARTOGRAPHERS_V1.TileMechanics
         
         //Fills template with correct values
         //See drTile for reference on how this works
-        public override void FillTile()
-        {
-            List<List<List<iResources>>> tempTile = SelectTileset();
+        
 
-
-
-            List<List<List<iResources>>> ft = new List<List<List<iResources>>>();
-
-            List<List<iResources>> subtile = new List<List<iResources>>();
-            List<iResources> subsubtile = new List<iResources>();
-
-
-
-            rNull nv = new rNull();
-            rFillable f = new rFillable();
-
-            for (int i = 0; i != tempTile.Count; i++)
-            {
-                for (int j = 0; j != tempTile[i].Count; j++)
-                {
-                    for (int k = 0; k != tempTile[j].Count; k++)
-                    {
-                        if (k.ToString() == nv.ToString())
-                        {
-                            subsubtile.Add(nv);
-                        }
-                        else if (k.ToString() == f.ToString())
-                        {
-
-                            subsubtile.Add(Resource);
-
-
-                        }
-                    }
-                    subtile.Add(subsubtile);
-                }
-                ft.Add(subtile);
-            }
-
-            FinalTiles = ft;
-        }
-
-        public override void outputTile(int rotation)
-        {
-
-            Console.Write("+");
-
-            FillTile();
-
-
-
-        }
+        
 
     }
 

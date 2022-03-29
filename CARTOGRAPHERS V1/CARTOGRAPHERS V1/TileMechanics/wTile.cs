@@ -1,7 +1,6 @@
 ﻿using CARTOGRAPHERS_V1.Resources;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace CARTOGRAPHERS_V1.TileMechanics
 {
@@ -47,7 +46,6 @@ namespace CARTOGRAPHERS_V1.TileMechanics
 
             Selector = SwitchResource();
 
-            FillTile();
 
         }
 
@@ -59,54 +57,6 @@ namespace CARTOGRAPHERS_V1.TileMechanics
             //TODO: Implement WIldTile's functionality
 
             return 0;
-        }
-
-
-
-        //FIllTile probably could have been an abstract override, but too late for that now.
-        public override void FillTile()
-        {
-            List<List<List<iResources>>> ft = new List<List<List<iResources>>>();
-
-            List<List<iResources>> subtile = new List<List<iResources>>();
-            List<iResources> subsubtile = new List<iResources>();
-
-
-
-            rNull nv = new rNull();
-            rFillable f = new rFillable();
-
-            for (int i = 0; i != Tiles.Count; i++)
-            {
-                for (int j = 0; j != Tiles[i].Count; j++)
-                {
-                    for (int k = 0; k != Tiles[j].Count; k++)
-                    {
-                        if (k.ToString() == nv.ToString())
-                        {
-                            subsubtile.Add(nv);
-                        }
-                        else if (k.ToString() == f.ToString())
-                        {
-
-                            subsubtile.Add(Resource);
-
-
-                        }
-                    }
-                    subtile.Add(subsubtile);
-                }
-                ft.Add(subtile);
-            }
-
-            FinalTile = ft;
-        }
-
-
-
-        public override void outputTile(int rotation)
-        {
-            throw new NotImplementedException();
         }
 
 

@@ -266,7 +266,7 @@ namespace CARTOGRAPHERS_V1
         public void placeTile(int tile_id, bool isRuins)
         {
 
-            pTerrain[,] tempMap = mapArray;
+            String[,] tempMap = mapArray;
 
             String input = "S";//User input string (sine Action Listeners are too ahrd to implement
 
@@ -351,7 +351,7 @@ namespace CARTOGRAPHERS_V1
 
 
             //2.If it's a DOuble resource Tile or Monster Tile (and not a wild), validate Once
-
+/*
             if ((isResource || isMonster) && !isWild)
             {
                 if (isResource) //Double Resource Tile
@@ -493,7 +493,7 @@ namespace CARTOGRAPHERS_V1
         }
 
 
-
+/*
 
         //Only takes in the tileset and not the whole object because the whole object is problematic and generally too much information this method needs
         public bool isFullTileValid(List<List<List<iResources>>> tile)//Uses a slimmed down version of placeTile until an open spot is available, otherwise returns false and switches to Wild Tile
@@ -697,11 +697,178 @@ namespace CARTOGRAPHERS_V1
         }
 
 
+*/
 
+        //Moving this class into Map as this map be root problem of why Class iResource Tiels aren't generating and therefore causing trouble    
+        //This overload handles double resources
+        public  List<List<List<iResources>>> FillTile(DRTile tile)
+        {
+            List<List<List<iResources>>> tempTile = tile.Tiles;
+
+            List<List<List<iResources>>> ft = new List<List<List<iResources>>>();
+
+            //My somewhat unique way of filling the final tile: creating each list individually and then nesting them when required.
+            
+           
+
+
+
+            rNull nv= new rNull();
+            rFillable f = new rFillable();
+
+            for(int i =0;i!=tempTile.Count;i++)
+            {
+                List<List<iResources>> subtile = new List<List<iResources>>();
+
+                for (int j =0; j!=tempTile[i].Count;j++)
+                {
+                    List<iResources> subsubtile = new List<iResources>();
+
+                    for (int k =0; k!=tempTile[j].Count;k++)
+                    {
+                        if(k.ToString()==nv.ToString())//Do nothing if there should be nothing there.
+                        {
+                            
+
+                            subsubtile.Add(new rNull());
+                        }
+                        else if (k.ToString() == f.ToString())//Do something if something should be there
+                        {
+                            if(tile.Selected_Tile == false)//Resource 1
+                            {
+                                
+                                
+                                subsubtile.Add(tile.Resource_One);//Nest this value
+                                
+
+                            }
+                            else//Resource 2
+                            {
+                                subsubtile.Add(tile.Resource_Two);//Nest this value
+                            }
+
+
+
+                        }
+                    }
+                    subtile.Add(subsubtile);//Nest this row
+                }
+                ft.Add(subtile);//Nest this tile rotation
+            }
+
+            return ft;
+        }
+        
+        //Moving this class into Map as this map be root problem of why Class iResource Tiels aren't generating and therefore causing trouble    
+        //This overload handles double tilesets
+        public  List<List<List<iResources>>> FillTile(dtTile tile)
+        {
+            List<List<List<iResources>>> tempTile = tile.SelectTileset();
+
+
+
+            List<List<List<iResources>>> ft = new List<List<List<iResources>>>();
+
+            List<List<iResources>> subtile = new List<List<iResources>>();
+            List<iResources> subsubtile = new List<iResources>();
+
+
+
+            rNull nv = new rNull();
+            rFillable f = new rFillable();
+
+            for (int i = 0; i != tempTile.Count; i++)
+            {
+                for (int j = 0; j != tempTile[i].Count; j++)
+                {
+                    for (int k = 0; k != tempTile[j].Count; k++)
+                    {
+                        if (k.ToString() == nv.ToString())
+                        {
+                            subsubtile.Add(nv);
+                        }
+                        else if (k.ToString() == f.ToString())
+                        {
+
+                            subsubtile.Add(tile.Resource);
+
+
+                        }
+                    }
+                    subtile.Add(subsubtile);
+                }
+                ft.Add(subtile);
+            }
+
+            return ft;
+
+        }
+
+
+        //Moving this class into Map as this map be root problem of why Class iResource Tiles aren't generating and therefore causing trouble    
+        //This overload handles wilds
+
+        public List<List<List<iResources>>> FillTile(wTile tile)
+        {
+            List<List<List<iResources>>> ft = new List<List<List<iResources>>>();
+
+            List<List<iResources>> subtile = new List<List<iResources>>();
+            List<iResources> subsubtile = new List<iResources>();
+
+
+
+            rNull nv = new rNull();
+            rFillable f = new rFillable();
+
+            ft[0][0][0] = tile.Resource;
+
+            return ft;
+        }
+
+        //Moving this class into Map as this map be root problem of why Class iResource Tiels aren't generating and therefore causing trouble    
+        //This overload handles wilds
+
+        public List<List<List<iResources>>> FillTile(mTile tile)
+        {
+            List<List<List<iResources>>> tempTile = tile.Tiles;
+
+            List<List<List<iResources>>> ft = new List<List<List<iResources>>>();
 
             
+            List<List<iResources>> subtile = new List<List<iResources>>();
+            List<iResources> subsubtile = new List<iResources>();
 
-        
-    
+
+
+            rNull nv = new rNull();
+            rFillable f = new rFillable();
+
+            for (int i = 0; i != tempTile.Count; i++)
+            {
+                for (int j = 0; j != tempTile[i].Count; j++)
+                {
+                    for (int k = 0; k != tempTile[j].Count; k++)
+                    {
+                        if (k.ToString() == nv.ToString())//Do nothing if there should be nothing there.
+                        {
+                            subsubtile.Add(nv);
+                        }
+                        else if (k.ToString() == f.ToString())//Do something if something should be there
+                        {
+
+                            subsubtile.Add(new rMonster());
+
+
+                        }
+                    }
+                    subtile.Add(subsubtile);//Nest this row
+                }
+                ft.Add(subtile);//Nest this tile rotation
+            }
+
+            return ft;
+        }
+
+
     }
 }

@@ -62,11 +62,7 @@ namespace CARTOGRAPHERS_V1
 
         //End COnstructors
 
-        //Used to replace Fillable (XX) Tiles in the tile with the iResource type chosen by the user
-        public abstract List<List<List<iResources>>> FillTile();
-
-        //Acts as ToString but flexible to rotation and 
-        public abstract void outputTile(int rotation);
+        
     
     }
 }

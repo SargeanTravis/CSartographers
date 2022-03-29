@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\2019b\\source\\repos\\CARTOGRAPHERS V1\\CARTOGRAPHERS V1\\CARTOGRAPHERS V1.csproj",
+      "projectUniqueName": "C:\\Users\\2019b\\Documents\\GitHub\\CSartographers\\CARTOGRAPHERS V1\\CARTOGRAPHERS V1\\CARTOGRAPHERS V1.csproj",
       "projectName": "CARTOGRAPHERS V1",
-      "projectPath": "C:\\Users\\2019b\\source\\repos\\CARTOGRAPHERS V1\\CARTOGRAPHERS V1\\CARTOGRAPHERS V1.csproj",
+      "projectPath": "C:\\Users\\2019b\\Documents\\GitHub\\CSartographers\\CARTOGRAPHERS V1\\CARTOGRAPHERS V1\\CARTOGRAPHERS V1.csproj",
       "packagesPath": "C:\\Users\\2019b\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\2019b\\source\\repos\\CARTOGRAPHERS V1\\CARTOGRAPHERS V1\\obj\\",
+      "outputPath": "C:\\Users\\2019b\\Documents\\GitHub\\CSartographers\\CARTOGRAPHERS V1\\CARTOGRAPHERS V1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
