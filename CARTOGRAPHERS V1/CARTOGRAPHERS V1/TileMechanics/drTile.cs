@@ -35,9 +35,9 @@ namespace CARTOGRAPHERS_V1.TileMechanics
 
         public DRTile(List<List<List<iResources>>> ts, int id, string name, int tc, iResources r1, iResources r2, bool selector):base(ts, id, name, tc)
         {
+            Selected_Tile = selector;
             Resource_One = r1;
             Resource_Two = r2;
-            Selected_Tile = selector;
 
             
         }
@@ -52,7 +52,16 @@ namespace CARTOGRAPHERS_V1.TileMechanics
 
         //End Constructors
 
+        
 
+        
+
+
+
+        
+
+
+        
 
     }
 }

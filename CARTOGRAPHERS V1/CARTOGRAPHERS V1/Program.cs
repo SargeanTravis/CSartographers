@@ -12,8 +12,8 @@ namespace CARTOGRAPHERS_V1
             //This initializes the Tile Cards utilized for the game
             #region "Template construction"
 
-            rFillable f = new rFillable();
-            rNull nv = new rNull();
+            
+            rForest f = new rForest();
             rHouse h = new rHouse();
             rRiver r = new rRiver();
             rForest t = new rForest();
@@ -23,25 +23,25 @@ namespace CARTOGRAPHERS_V1
             List<List<iResources>> subtile = new List<List<iResources>>();
             List<List<List<iResources>>> tile = new List<List<List<iResources>>>();
             #region "Tile 1"
-            subsubtile.Add(f);//####
-            subsubtile.Add(f);
-            subsubtile.Add(f);
-            subsubtile.Add(f);
+            subsubtile.Add(new rFillable());//####
+            subsubtile.Add(new rFillable());
+            subsubtile.Add(new rFillable());
+            subsubtile.Add(new rFillable());
             subtile.Add(subsubtile);
             tile.Add(subtile);
             subsubtile.Clear();
             subtile.Clear();
 
-            subsubtile.Add(f);//#
+            subsubtile.Add(new rFillable());//#
             subtile.Add(subsubtile);
             subsubtile.Clear();
-            subsubtile.Add(f);//#
+            subsubtile.Add(new rFillable());//#
             subtile.Add(subsubtile);
             subsubtile.Clear();
-            subsubtile.Add(f);//#
+            subsubtile.Add(new rFillable());//#
             subtile.Add(subsubtile);
             subsubtile.Clear();
-            subsubtile.Add(f);//#
+            subsubtile.Add(new rFillable());//#
             subtile.Add(subsubtile);
             tile.Add(subtile);
             subsubtile.Clear();
@@ -54,69 +54,69 @@ namespace CARTOGRAPHERS_V1
             #endregion
             #region "Tile 2"
 
-            subsubtile.Add(nv);//-###
-            subsubtile.Add(f);
-            subsubtile.Add(f);
-            subsubtile.Add(f);
+            subsubtile.Add(new rNull());//-###
+            subsubtile.Add(new rFillable());
+            subsubtile.Add(new rFillable());
+            subsubtile.Add(new rFillable());
             subtile.Add(subsubtile);
             subsubtile.Clear();
-            subsubtile.Add(f);//##--
-            subsubtile.Add(f);
-            subsubtile.Add(nv);
-            subsubtile.Add(nv);
-            subtile.Add(subsubtile);
-            tile.Add(subtile);
-            subsubtile.Clear();
-            subtile.Clear();
-
-            subsubtile.Add(f);//#-
-            subsubtile.Add(nv);
-            subtile.Add(subsubtile);
-            subsubtile.Clear();
-            subsubtile.Add(f);//#-
-            subsubtile.Add(nv);
-            subtile.Add(subsubtile);
-            subsubtile.Clear();
-            subsubtile.Add(f);//##
-            subsubtile.Add(f);
-            subtile.Add(subsubtile);
-            subsubtile.Clear();
-            subsubtile.Add(nv);//-#
-            subsubtile.Add(f);
+            subsubtile.Add(new rFillable());//##--
+            subsubtile.Add(new rFillable());
+            subsubtile.Add(new rNull());
+            subsubtile.Add(new rNull());
             subtile.Add(subsubtile);
             tile.Add(subtile);
             subsubtile.Clear();
             subtile.Clear();
 
-            subsubtile.Add(nv);//-###
-            subsubtile.Add(f);
-            subsubtile.Add(f);
-            subsubtile.Add(f);
+            subsubtile.Add(new rFillable());//#-
+            subsubtile.Add(new rNull());
             subtile.Add(subsubtile);
             subsubtile.Clear();
-            subsubtile.Add(f);//##--
-            subsubtile.Add(f);
-            subsubtile.Add(nv);
-            subsubtile.Add(nv);
+            subsubtile.Add(new rFillable());//#-
+            subsubtile.Add(new rNull());
+            subtile.Add(subsubtile);
+            subsubtile.Clear();
+            subsubtile.Add(new rFillable());//##
+            subsubtile.Add(new rFillable());
+            subtile.Add(subsubtile);
+            subsubtile.Clear();
+            subsubtile.Add(new rNull());//-#
+            subsubtile.Add(new rFillable());
             subtile.Add(subsubtile);
             tile.Add(subtile);
             subsubtile.Clear();
             subtile.Clear();
 
-            subsubtile.Add(f);//#-
-            subsubtile.Add(nv);
+            subsubtile.Add(new rNull());//-###
+            subsubtile.Add(new rFillable());
+            subsubtile.Add(new rFillable());
+            subsubtile.Add(new rFillable());
             subtile.Add(subsubtile);
             subsubtile.Clear();
-            subsubtile.Add(f);//##
-            subsubtile.Add(f);
+            subsubtile.Add(new rFillable());//##--
+            subsubtile.Add(new rFillable());
+            subsubtile.Add(new rNull());
+            subsubtile.Add(new rNull());
+            subtile.Add(subsubtile);
+            tile.Add(subtile);
+            subsubtile.Clear();
+            subtile.Clear();
+
+            subsubtile.Add(new rFillable());//#-
+            subsubtile.Add(new rNull());
             subtile.Add(subsubtile);
             subsubtile.Clear();
-            subsubtile.Add(nv);//-#
-            subsubtile.Add(f);
+            subsubtile.Add(new rFillable());//##
+            subsubtile.Add(new rFillable());
             subtile.Add(subsubtile);
             subsubtile.Clear();
-            subsubtile.Add(nv);//-#
-            subsubtile.Add(f);
+            subsubtile.Add(new rNull());//-#
+            subsubtile.Add(new rFillable());
+            subtile.Add(subsubtile);
+            subsubtile.Clear();
+            subsubtile.Add(new rNull());//-#
+            subsubtile.Add(new rFillable());
             subtile.Add(subsubtile);
             tile.Add(subtile);
             subsubtile.Clear();
@@ -142,7 +142,7 @@ namespace CARTOGRAPHERS_V1
 
             List<List<List<iResources>>> testing = test.FillTile(a);
 
-            foreach(List<List<iResources>>tileRotation in testing)
+            foreach(List<List<iResources>>tileRotation in a.Tiles)
             {
 
                 foreach(List<iResources> tileRow in tileRotation)
@@ -155,6 +155,8 @@ namespace CARTOGRAPHERS_V1
                 }
                 Console.WriteLine("\n");
             }
+
+            
 
            // bool check = test.simulatePlacement(b, 0, false);
 

@@ -14,6 +14,8 @@ namespace CARTOGRAPHERS_V1.Resources
         private int y;
 
 
+        public rFillable(){}
+
         //Coordinate system: used to attempt to place a tile.
         public void setX(int _x)
         {

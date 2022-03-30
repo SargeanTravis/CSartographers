@@ -834,7 +834,7 @@ namespace CARTOGRAPHERS_V1
 
             List<List<List<iResources>>> ft = new List<List<List<iResources>>>();
 
-            
+            //My somewhat unique way of filling the final tile: creating each list individually and then nesting them when required.
             List<List<iResources>> subtile = new List<List<iResources>>();
             List<iResources> subsubtile = new List<iResources>();
 
