@@ -8,7 +8,7 @@ namespace CARTOGRAPHERS_V1
     {
 
         //This holds every rotation of the tile stored in a child Tile object.
-        private List<List<List<iResources>>> tiles;
+        private iResources[,,] tiles;
         //Generic Tile ID used in a randomization system that will be implemented separately
         private int tile_id;
         //Defines the name for the tile
@@ -20,7 +20,7 @@ namespace CARTOGRAPHERS_V1
 
         //Begin Constructors
 
-        public List<List<List<iResources>>> Tiles
+        public iResources[,,] Tiles
         {
             get
             {
@@ -46,7 +46,7 @@ namespace CARTOGRAPHERS_V1
 
         
 
-        public Tile(List<List<List<iResources>>> ts, int id, string name, int tc)
+        public Tile(iResources[,,] ts, int id, string name, int tc)
         {
             Tiles = ts;
             Tile_ID = id;

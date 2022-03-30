@@ -1,0 +1,73 @@
+using CARTOGRAPHERS_V1.Resources;
+using CARTOGRAPHERS_V1.TileMechanics;
+using System;
+using System.Collections.Generic;
+
+namespace CARTOGRAPHERS_V1
+{
+    class Tile1:DRTile//Alternate Plan in refactor: Create unique classes fpor each tile and create an new instance for each tile. This allows me to make Arrays instead of Lists          
+    {
+
+        //Constructor directly inherits from DRTile
+        public Tile1(iResources[,,] ts, int id, string name, int tc, iResource r1, iResource r2, bool selector)
+            :base(ts, id, name, tc, r1, r2, selector)
+        {
+
+
+
+
+        }
+
+        //Return the tileset that is most appropriate to user selection.
+        public iResources[,,] returnProperTileSet()
+        {
+            rHouse h1 = new rHouse();
+            rHouse h2 = new rHouse();
+            rHouse h3 = new rHouse();
+            rHouse h4 = new rHouse();
+
+            rRiver r1 = new rRiver();
+            rRiver r2 = new rRiver();
+            rRiver r3 = new rRiver();
+            rRiver r4 = new rRiver();
+            
+            if(Selected_Tile){
+                return 
+                {
+                    {
+                        {h1, h2, h3, h4}
+                    },
+                    {
+                        {h1},
+                        {h2},
+                        {h3},
+                        {h4}
+                    }
+                    
+                };
+            }
+            else
+            {
+                return
+                {
+                      {
+                        {r1, r2, r3, r4}
+                    },
+                    {
+                        {r1},
+                        {r2},
+                        {r3},
+                        {r4}
+                    }  
+                };
+            }
+        }
+
+
+
+
+    }
+
+
+
+}

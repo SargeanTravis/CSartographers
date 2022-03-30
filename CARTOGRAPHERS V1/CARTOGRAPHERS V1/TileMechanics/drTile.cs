@@ -33,7 +33,7 @@ namespace CARTOGRAPHERS_V1.TileMechanics
             }
         }
 
-        public DRTile(List<List<List<iResources>>> ts, int id, string name, int tc, iResources r1, iResources r2, bool selector):base(ts, id, name, tc)
+        public DRTile(iResources[,,] ts, int id, string name, int tc, iResources r1, iResources r2, bool selector):base(ts, id, name, tc)
         {
             Selected_Tile = selector;
             Resource_One = r1;
