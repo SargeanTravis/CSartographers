@@ -186,11 +186,46 @@ namespace CARTOGRAPHERS_V1
                 rm4.setCoords(9, 8);
                 rm5.setCoords(2, 9);
 
+                iResources[,] scorePlain =
+                {
+                    {new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),
+                        new rFillable(),new rFillable(),new rFillable() },
+                    {new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),
+                        new rFillable(),new rFillable(),new rFillable() },
+                    {new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),
+                        new rFillable(),new rFillable(),new rFillable() },
+                    {new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),
+                        new rFillable(),new rFillable(),new rFillable() },
+                    {new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),
+                        new rFillable(),new rFillable(),new rFillable() },
+                    {new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),
+                        new rFillable(),new rFillable(),new rFillable() },
+                    {new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),
+                        new rFillable(),new rFillable(),new rFillable() },
+                    {new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),
+                        new rFillable(),new rFillable(),new rFillable() },
+                    {new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),
+                        new rFillable(),new rFillable(),new rFillable() },
+                    {new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),
+                        new rFillable(),new rFillable(),new rFillable() },
+                    {new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),new rFillable(),
+                        new rFillable(),new rFillable(),new rFillable() }
+
+
+
+                };
+
+                ScoreArray = scorePlain;
+
+
+
                 ScoreArray[1, 8] = rm1;
                 ScoreArray[2, 3] = rm2;
                 ScoreArray[7, 5] = rm3;
                 ScoreArray[8, 9] = rm4;
                 ScoreArray[9, 2] = rm5;
+
+
 
                 //Setting coordinates for ScoreArray Wastelands as they are considered border spaces in scoring situations
                 ScoreArray[3, 5] = new rWasteland(5, 3);
@@ -552,7 +587,7 @@ namespace CARTOGRAPHERS_V1
 
                                 iResources resource = testTile[y2][x2];//Obtain resource value of testTile at the coordinates of this tile
 
-                                pTerrain terrain = mapArray[y + y2, x + x2];//Obtain resource value of where testTile's current tile would go, which is the current mapArray coordinate plus the tile coordinate modifier
+                                iResources terrain = ScoreArray[y + y2, x + x2];//Obtain resource value of where testTile's current tile would go, which is the current mapArray coordinate plus the tile coordinate modifier
 
 
                                 //If the tile appears to be invalid on the map side
@@ -604,7 +639,7 @@ namespace CARTOGRAPHERS_V1
         //Begin special print commands for a new Tile. It returns a bool value to prevent finalization of an invalid placement.
         public bool simulatePlacement(DRTile tile, int rotation, bool isRuins)
         {
-            pTerrain[,] mapArrayCopy = mapArray;//Prevents unauthorized changes
+            String[,] mapArrayCopy = mapArray;//Prevents unauthorized changes
             
             //This tile will be displayed on the copy if an overlap occurs.
             Filled errorFill = new Filled("!!");
@@ -812,19 +847,20 @@ namespace CARTOGRAPHERS_V1
         //Moving this class into Map as this map be root problem of why Class iResource Tiles aren't generating and therefore causing trouble    
         //This overload handles wilds
 
-        public List<List<List<iResources>>> FillTile(wTile tile)
+        public iResources[,,] FillTile(wTile tile)
         {
-            List<List<List<iResources>>> ft = new List<List<List<iResources>>>();
+            
+            //Reworking Lists into 3D arrays
+            iResources[,,] ft = tile.Tiles;
 
-            List<List<iResources>> subtile = new List<List<iResources>>();
-            List<iResources> subsubtile = new List<iResources>();
+            
 
 
 
             rNull nv = new rNull();
             rFillable f = new rFillable();
 
-            ft[0][0][0] = tile.Resource;
+            ft[0, 0, 0] = tile.Resource;
 
             return ft;
         }
@@ -832,43 +868,18 @@ namespace CARTOGRAPHERS_V1
         //Moving this class into Map as this map be root problem of why Class iResource Tiels aren't generating and therefore causing trouble    
         //This overload handles wilds
 
-        public List<List<List<iResources>>> FillTile(mTile tile)
+        public iResources[,,] FillTile(mTile tile)
         {
-            List<List<List<iResources>>> tempTile = tile.Tiles;
+            
 
-            List<List<List<iResources>>> ft = new List<List<List<iResources>>>();
+            iResources[,,] ft = tile.Tiles;
 
-            //My somewhat unique way of filling the final tile: creating each list individually and then nesting them when required.
-            List<List<iResources>> subtile = new List<List<iResources>>();
-            List<iResources> subsubtile = new List<iResources>();
+            
 
 
 
-            rNull nv = new rNull();
-            rFillable f = new rFillable();
-
-            for (int i = 0; i != tempTile.Count; i++)
-            {
-                for (int j = 0; j != tempTile[i].Count; j++)
-                {
-                    for (int k = 0; k != tempTile[j].Count; k++)
-                    {
-                        if (k.ToString() == nv.ToString())//Do nothing if there should be nothing there.
-                        {
-                            subsubtile.Add(nv);
-                        }
-                        else if (k.ToString() == f.ToString())//Do something if something should be there
-                        {
-
-                            subsubtile.Add(new rMonster());
-
-
-                        }
-                    }
-                    subtile.Add(subsubtile);//Nest this row
-                }
-                ft.Add(subtile);//Nest this tile rotation
-            }
+            
+            
 
             return ft;
         }

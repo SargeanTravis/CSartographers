@@ -13,7 +13,7 @@ namespace CARTOGRAPHERS_V1.TileMechanics
 
         
 
-        public mTile(List<List<List<iResources>>> tiles, int id, string name, int tc) : base(tiles, id, name, tc)
+        public mTile(iResources[,,] tiles, int id, string name, int tc) : base(tiles, id, name, tc)
         {
 
         }

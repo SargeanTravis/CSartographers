@@ -9,11 +9,8 @@ namespace CARTOGRAPHERS_V1.TileMechanics
     {
         
         //This is the second set of possible tiles this could be based on user selection
-        private List<List<List<iResources>>> tiles2;
+        private iResources[,,] tiles2;
 
-        //This is intended to be a copy of tiles from Tile that is only used to finalize a user placement. 
-        //Could probably remove roation element as rotation could be determined before tile is filled and placed.
-        private List<List<List<iResources>>> finalTiles;
         
         //The sole resource this tile can be
         private iResources resource;
@@ -29,7 +26,7 @@ namespace CARTOGRAPHERS_V1.TileMechanics
 
         //Begin Constructors
 
-        public List<List<List<iResources>>> Tiles2
+        public iResources[,,] Tiles2
         {
             get
             {
@@ -38,18 +35,6 @@ namespace CARTOGRAPHERS_V1.TileMechanics
             set
             {
                 tiles2 = value;
-            }
-        }
-
-        public List<List<List<iResources>>> FinalTiles
-        {
-            get
-            {
-                return finalTiles;
-            }
-            set
-            {
-                finalTiles = value;
             }
         }
 
@@ -91,7 +76,7 @@ namespace CARTOGRAPHERS_V1.TileMechanics
 
         
 
-        public dtTile(List<List<List<iResources>>> ts, List<List<List<iResources>>> ts2, int tc, int id, string name, bool coin, bool select, iResources r) : base(ts, id, name, tc)
+        public dtTile(iResources[,,] ts, iResources[,,] ts2, int tc, int id, string name, bool coin, bool select, iResources r) : base(ts, id, name, tc)
         {
             Tiles2 = ts2;
             CoinTile = coin;
@@ -120,18 +105,15 @@ namespace CARTOGRAPHERS_V1.TileMechanics
 
 
         //Outputs the first or second tileset based on selector
-        public List<List<List<iResources>>> SelectTileset()
+        public iResources[,,] SelectTileset()
         {
-            List<List<List<iResources>>> protofinalset = new List<List<List<iResources>>>();
+            iResources[,,] protofinalset = Tiles2;
 
             if(selector==false)
             {
                 protofinalset = Tiles;
             }
-            else if(selector == true)
-            {
-                protofinalset = Tiles2;
-            }
+            
 
 
 
