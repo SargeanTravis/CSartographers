@@ -9,11 +9,27 @@ namespace CARTOGRAPHERS_V1
     {
 
         //Constructor directly inherits from DRTile
-        public Tile1(iResources[,,] ts, int id, string name, int tc, iResource r1, iResource r2, bool selector)
-            :base(ts, id, name, tc, r1, r2, selector)
+        public Tile1(iResources[,,] ts) : base(ts)
         {
+            
+            rFillable x1 = new rFillable();
+            rFillable x2 = new rFillable();
+            rFillable x3 = new rFillable();
+            rFillable x4 = new rFillable();
 
 
+            Tiles = 
+            {
+                {
+                    (x1, x2, x3, x4)
+                },
+                {
+                    {x1},
+                    {x2},
+                    {x3},
+                    {x4}
+                }
+            };
 
 
         }

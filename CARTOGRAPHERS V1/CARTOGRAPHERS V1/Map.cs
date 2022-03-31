@@ -252,11 +252,15 @@ namespace CARTOGRAPHERS_V1
 
         }
         //Begin User Interface system for placeTile(). Prints all valid commands 
-        public String UIController(DRTile tile, bool selectedTileType, bool tileIsValid, bool shouldBeOnRuins, bool canW, bool canA, bool canS, bool canD)
+        public String UIController(int tile_id, bool selectedTileType, bool tileIsValid, bool shouldBeOnRuins, bool canW, bool canA, bool canS, bool canD)
         {
             string input = "";
 
-            List<String> commands = new List<String>();
+            List<String> commands = new List<String>();//Add to the list only valid commands the user can perform
+
+
+            
+
 
 
             return input;
@@ -351,7 +355,7 @@ namespace CARTOGRAPHERS_V1
 
 
             //2.If it's a DOuble resource Tile or Monster Tile (and not a wild), validate Once
-/*
+
             if ((isResource || isMonster) && !isWild)
             {
                 if (isResource) //Double Resource Tile
@@ -493,7 +497,7 @@ namespace CARTOGRAPHERS_V1
         }
 
 
-/*
+
 
         //Only takes in the tileset and not the whole object because the whole object is problematic and generally too much information this method needs
         public bool isFullTileValid(List<List<List<iResources>>> tile)//Uses a slimmed down version of placeTile until an open spot is available, otherwise returns false and switches to Wild Tile
@@ -697,7 +701,7 @@ namespace CARTOGRAPHERS_V1
         }
 
 
-*/
+
 
         //Moving this class into Map as this map be root problem of why Class iResource Tiels aren't generating and therefore causing trouble    
         //This overload handles double resources
