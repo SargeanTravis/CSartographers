@@ -535,7 +535,7 @@ namespace CARTOGRAPHERS_V1
 
 
         //Only takes in the tileset and not the whole object because the whole object is problematic and generally too much information this method needs
-        public bool isFullTileValid(List<List<List<iResources>>> tile)//Uses a slimmed down version of placeTile until an open spot is available, otherwise returns false and switches to Wild Tile
+        public bool isFullTileValid(iResources[,,] tile)//Uses a slimmed down version of placeTile until an open spot is available, otherwise returns false and switches to Wild Tile
         {
             //counter variables for the map coords and tile rotation
             int x = 0;
@@ -547,12 +547,55 @@ namespace CARTOGRAPHERS_V1
             bool tileIsValid = true;
 
             //Will hold the tile to test 
-            List<List<iResources>> testTile;
+            iResources[,] testTile = new iResources[tile.GetLength(1), tile.GetLength(2)];
 
-
-            for (; rotation != tile.Count - 1; ++rotation)//Run for each tile rotation
+            for(int i =0; i < tile.GetLength(0);i++)//Run for each tile rotation
             {
-                testTile = tile[rotation];
+                
+
+
+                for(int j = 0; j < tile.GetLength(1); j++)//Run for each tile row
+                {
+                    for(int k = 0; k < tile.GetLength(2); k++)//Run for neach colum in the row
+                    {
+                        testTile[j,k] = tile[i,j,k];//Successfully downsize a 3D array into a 2D one?
+                        testTile[j,k].setCoords(k, j);
+                    }
+                }
+                
+                for(;y <11;y++)//Rotating through the y axis on board
+                {
+                        
+                    for(;x < 11; ++)//Rotating through the x axis on the board
+                    {
+
+                        if(!MapArray[y, x].equals("--") || !MapArray[y,x].equals("-R"))//Test for lack of empty or empty ruins
+                        {
+                            tileIsValid = false;
+                            break;
+
+
+
+                        }
+                        
+                        
+
+                    }
+                }
+
+
+
+            }
+
+            
+
+            for (; rotation != tile.GetLength(0); ++rotation)//Run for each tile rotation
+            {
+                
+                //Populate testTile with the second and third dimensions of testTile
+                
+                            
+
 
                 //Second for loop controls Y coordinates
 
